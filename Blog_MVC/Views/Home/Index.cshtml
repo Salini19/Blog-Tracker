@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Blog_MVC.Models.Blog>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center text-justify" style="text-align:center">List of Blogs</h1>
+
+
+    <div class="container">
+        <div class="row"> @*style="color:black ; border-radius:10px; border:thick;border-block-color:black">*@
+            @foreach (var item in Model)
+            {
+            <div class="col-md-5 " style="border-style:solid;padding: 10px;margin: 10px ;border-radius: 10px">
+                <div>
+                    <span style="font-size:larger;" ><b> @Html.DisplayFor(modelItem => item.Title)-By</b></span>
+               
+                        <span style="font-size:larger"><b> @Html.DisplayFor(modelItem => item.EmailId)</b></span>
+                   
+                </div>
+
+
+                <h4>
+                    <span style="font-size:medium"> Date:@Html.DisplayFor(modelItem => item.DateOfCreation)</span>
+                </h4>
+                <h4>
+                    <span style="font-size:medium"> Subject: @Html.DisplayFor(modelItem => item.Subject)</span>
+
+                </h4>
+                <div style="background-color:lightblue; color: white; border-radius: 10px">
+                    <h4>
+                        <span style="border-radius:13px">@Html.DisplayFor(modelItem => item.BlogUrl)</span>
+                    </h4>
+                </div>&nbsp;
+            </div>
+            }
+        </div>
+    </div>
+
+
+

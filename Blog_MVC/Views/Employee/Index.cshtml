@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Blog_MVC.Models.Emp>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employee Details</h1>
+
+<p>
+    @Html.ActionLink("Add New", "Create",null,new {@class="btn btn-primary"})
+</p>
+<table class="table">
+    <thead style="background-color:darkcyan">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateofJoining)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Passcode)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody style="background-color:cornflowerblue">
+@foreach (var item in Model) {
+        <tr>
+            <td style="color:black">
+                @Html.DisplayFor(modelItem => item.EmailId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateofJoining)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Passcode)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.EmailId },new {@class="btn btn-danger"}) 
+                @Html.ActionLink("Delete", "Delete", new { id=item.EmailId },new {@class="btn btn-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,47 @@
+﻿@model Blog_MVC.Models.Emp
+
+@{
+    ViewData["Title"] = "Employee Login Page";
+}
+
+<h1>EmpLogin</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EmpLogin">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmailId" class="control-label"></label>
+                <input asp-for="EmailId" class="form-control" />
+                <span asp-validation-for="EmailId" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateofJoining" class="control-label"></label>
+                <input asp-for="DateofJoining" class="form-control" />
+                <span asp-validation-for="DateofJoining" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Passcode" class="control-label"></label>
+                <input asp-for="Passcode" class="form-control" />
+                <span asp-validation-for="Passcode" class="text-danger"></span>
+            </div>
+            <h6 style="color:red" class="text-center">@ViewBag.msg</h6>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
